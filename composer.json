@@ -1,0 +1,26 @@
+{
+    "name": "todsto/image-crop-resizer",
+    "description": "",
+    "authors": [
+        {
+            "name": "Todor Todorov",
+            "email": "todstoychev@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "4.2.*",
+        "orchestra/imagine": "3.0.*@dev"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations",
+            "src/config",
+            "src/models"
+        ],
+        "psr-0": {
+            "Todsto\\ImageCropResizer\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
