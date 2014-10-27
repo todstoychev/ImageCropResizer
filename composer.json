@@ -1,6 +1,7 @@
 {
     "name": "todsto/image-crop-resizer",
-    "description": "",
+    "description": "Image manipulation bundle for Laravel 4",
+    "license": "MIT",
     "authors": [
         {
             "name": "Todor Todorov",
