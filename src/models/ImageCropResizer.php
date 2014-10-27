@@ -4,6 +4,15 @@ namespace Todsto\ImageCropResizer\Models;
 
 use Illuminate\Database\Eloquent;
 
+/**
+ * Class ImageCropResizer
+ * @package Todsto\ImageCropResizer\Models
+ *
+ * ImageCropResizer model class
+ *
+ * @author Todor Todorov <todstoychev@gmail.com>
+ * @copyright 2014
+ */
 class ImageCropResizer extends \Eloquent {
 
     /**

@@ -8,6 +8,15 @@ use Imagine\Image\Point as Point;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
+/**
+ * Class CropResizer
+ * @package Todsto\ImageCropResizer
+ *
+ * Class that contains the actual methods that do the work
+ *
+ * @author Todor Todorov <todstoychev@gmail.com>
+ * @copyright 2014
+ */
 class CropResizer {
 
     /**

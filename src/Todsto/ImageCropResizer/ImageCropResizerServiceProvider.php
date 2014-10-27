@@ -2,6 +2,15 @@
 
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * Class ImageCropResizerServiceProvider
+ * @package Todsto\ImageCropResizer
+ *
+ * Service provider class
+ *
+ * @author Todor Todorov
+ * @copyright 2014
+ */
 class ImageCropResizerServiceProvider extends ServiceProvider {
 
     /**

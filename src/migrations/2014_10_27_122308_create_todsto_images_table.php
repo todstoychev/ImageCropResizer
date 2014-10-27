@@ -3,6 +3,12 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+/**
+ * Class CreateTodstoImagesTable
+ *
+ * Migration class that creates the image_crop_resizer table.
+ * Table is used to hold the images data.
+ */
 class CreateTodstoImagesTable extends Migration {
 
 	/**
