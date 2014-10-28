@@ -16,9 +16,7 @@
     },
     "autoload": {
         "classmap": [
-            "src/migrations",
-            "src/config",
-            "src/models"
+            "src/config"
         ],
         "psr-0": {
             "Todsto\\ImageCropResizer\\": "src/"
