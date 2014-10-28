@@ -16,7 +16,6 @@ Open your ```app/config/app.php``` and add ```'Todsto\ImageCropResizer\ImageCrop
 # Basic usage
 The bundle stores the images in the ```public/uploads/context/size``` folder. 
 
-## Cofiguration
 To set the your own contexts use the ```app/config/packages/todsto/image-crop-resizer/contexts.php```.
 The file looks like this
     
@@ -48,7 +47,7 @@ The action defines the way that the image will be processed.
 "crop-resize" crops a region from the image, but first resize it,
 so the image will be cropped with no deformations and with minimal losses.
 
-## Usage
+
 To use the bundle just call in you controller the process method of the ImageCropResizer class. As you have an alias, your code might look like this:
 
 1. Controller
