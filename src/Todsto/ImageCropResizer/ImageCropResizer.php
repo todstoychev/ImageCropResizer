@@ -26,7 +26,7 @@ class ImageCropResizer {
 
         $base_file_name = CropResizer::baseFileName($context);
 
-        foreach ($config as $key => $size) { 
+        foreach ($config as $key => $size) {
             $img = new CropResizer($image);
             switch ($size['action']) {
                 case 'crop':
