@@ -49,8 +49,6 @@ so the image will be cropped with no deformations and with minimal losses.
 
 
 To use the bundle just call in you controller the process method of the ImageCropResizer class. As you have an alias, your code might look like this:
-
-1. Controller
     
         class TestController extends Controller {
     
@@ -68,7 +66,7 @@ To use the bundle just call in you controller the process method of the ImageCro
     
         } 
     
-2. Template
+In the template:
     
         @if(Session::has('message'))
         {{ Session::get('message') }}
