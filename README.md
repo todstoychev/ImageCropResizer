@@ -11,14 +11,6 @@ Publish the configuration
     
     php artisan config:publish todsto/image-crop-resizer
     
-The bundle has migrations inside, that create a table for the image names and the image contexts. To copy this migration files to your project run:
-    
-    php artisan migrate:publish todsto/image-crop-resizer
-    
-Run the migratio with:
-
-    php artisan migrate
-    
 Open your ```app/config/app.php``` and add ```'Todsto\ImageCropResizer\ImageCropResizerServiceProvider', ``` to the providers array. Then add ```'ICR' => 'Todsto\ImageCropResizer\ImageCropResizer'``` to the aliases array. This will register 'ICR' as alias for the base bundle class.
 
 # Basic usage
@@ -68,8 +60,10 @@ To use the bundle just call in you controller the process method of the ImageCro
             }
     
             public function postTest() {
-                ICR::process(Input::file('image'), 'default');
+                $image_name = ICR::process(Input::file('image'), 'default');
     
+                // Some database actions here
+                
                 return Redirect::back()->with('message', 'Success');
             }
     
@@ -90,4 +84,4 @@ To use the bundle just call in you controller the process method of the ImageCro
     
         {{ Form::close() }}
 
-The process method takes as first argument the file object from the input field. The second argument is the context.
+The process method takes as first argument the file object from the input field. The second argument is the context. The process method returns the generated unique image name.

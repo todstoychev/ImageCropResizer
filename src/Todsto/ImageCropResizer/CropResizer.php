@@ -31,14 +31,14 @@ class CropResizer {
      *
      * @var string
      */
-    private $ext;
+    private static $ext;
 
     /**
      * @param $image
      */
     public function __construct($image) {
         $this->validate($image);
-        $this->ext = $image->getClientOriginalExtension();
+        self::$ext = $image->getClientOriginalExtension();
         $img = new Img();
         $this->image = $img->open($image);
     }
@@ -64,7 +64,7 @@ class CropResizer {
     public function cropResizeImage($output_width, $output_height) {
         $size = $this->calcOutputSize($output_width, $output_height);
         $this->image->resize(new Box($size['width'], $size['height']))
-            ->crop($this->calcCropPoint($size['width'], $size['height']), new Box($output_width, $output_height));
+            ->crop($this->calcCropPoint($output_width, $output_height), new Box($output_width, $output_height));
     }
 
     /**
@@ -73,7 +73,7 @@ class CropResizer {
      * @param string $context Context to use
      * @return string Base file name
      */
-    public function baseFileName($context) {
+    public static function baseFileName($context) {
         $base = md5(time() * microtime());
 
         foreach (\Config::get('image-crop-resizer::contexts.' . $context) as $key => $size) {
@@ -82,8 +82,8 @@ class CropResizer {
                 mkdir($dir, 0777, true);
             }
 
-            if (\File::exists(public_path() . '/uploads/' . $context . '/' . $key . '/' . $base . '.' . $this->ext)) {
-                $this->baseFileName($context);
+            if (\File::exists(public_path() . '/uploads/' . $context . '/' . $key . '/' . $base . '.' . self::$ext)) {
+                self::baseFileName($context);
             }
         }
 
@@ -99,7 +99,7 @@ class CropResizer {
      * @return string Uploaded image name
      */
     public function saveImage($base_image_name, $context, $size) {
-        $image_name = $base_image_name . '.' . $this->ext;
+        $image_name = $base_image_name . '.' . self::$ext;
         $this->image->save(public_path() . '/uploads/' . $context . '/' . $size . '/' . $image_name);
 
         return $image_name;
@@ -146,8 +146,6 @@ class CropResizer {
      * @return Point Imagine Point interface instance
      */
     private function calcCropPoint($output_width, $output_height) {
-
-        $size = $this->image->getSize();
 
         if ($this->image->getSize()->getHeight() > $output_height) {
             $y = ($this->image->getSize()->getHeight() - $output_height) / 2;
