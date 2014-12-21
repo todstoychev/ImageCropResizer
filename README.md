@@ -3,7 +3,7 @@
 You can install this package in the standart way. 
 Add:
     
-    "todsto/image-crop-resizer": "dev"
+    "todsto/image-crop-resizer": "dev-master"
     
 to your ```composer.json```.
 Run ```composer update```
